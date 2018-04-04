@@ -116,7 +116,7 @@ const results = [
     let incrementer = 0;
     let incorrectIncrementer = 0;
     let clockRunning = false;
-    let time = 5;
+    let time = 30;
     let intervalId;
     let smallQuestionNumber = 1;
     let correct = 0;
