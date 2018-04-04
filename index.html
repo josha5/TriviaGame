@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trivia Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -13,9 +13,65 @@
     <script src="assets/javascript/app.js"></script>
 </head>
 <body>
-    <div class="container">
+    
+    <div class="page-header text-center mt-4">
+      <h1> Welcome to Sports Trivia!</h1>
+    </div>
+    <div id="modal"> 
+    	<div class="modalcontent">
+              <h1>Welcome to Sports Trivia! <hr><br></h1>
+                <p>You will be given a series of random sports questions, and you will have
+                30 seconds to answer each question. <br>Test your knowledge and see if you can get a perfect score!
+                Press start quiz to play! </p>
+              <button type="button" class="btn btn-primary" id="start">Start Game</button>
+   		</div>
+    </div>
+    <div id="correctModal"> 
+        <div class="modalcontent">
+            <h1 class="text-center">Correct Answer! <hr><br></h1>
+        </div>
+    </div>
+    <div id="incorrectModal"> 
+        <div class="modalcontent">
+            <h1 class="text-center">Incorrect Answer.<hr><br></h1>
+            <p id="incorrectAnswerModal"></p>
+        </div>
+    </div>
+    <div id="timesUpModal"> 
+        <div class="modalcontent">
+            <h1 class="text-center">Your Time is up! <hr><br></h1>
+            <p id="timeAnswerModal"></p>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="row text-center">
+            <div class="col-md-6">
+                <p id="smallQuestionNumber" class="ml-4 mt-4">Question 1 of 10.</p>
+            </div>
+            <div class ="col-md-6">
+                <p id="timer" class="ml-5 mt-4"></p>
+            </div>
+        </div>
         <div class="row">
-            
+            <div class="col-md-12">
+                <p id="mainQuestion" class="text-center mt-4"></p>
+            </div>
+        </div>
+        <div class="row mt-4 text-center">
+            <div class="col-md-6">
+                <p id="answer1" class="answer"></p>
+            </div>
+            <div class="col-md-6">
+                <p id="answer2" class="answer"></p>
+            </div>
+        </div>
+        <div class="row mt-4 text-center">
+            <div class="col-md-6">
+                <p id="answer3" class="answer"></p>
+            </div>
+            <div class="col-md-6">
+                <p id="answer4" class="answer"></p>
+            </div>
         </div>
     </div>
 </body>

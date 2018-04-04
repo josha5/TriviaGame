@@ -1,0 +1,90 @@
+body {
+    background-image:url('https://s19.postimg.org/4mfuz02lv/school.png');
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    background-color: #eee;
+    width: 900px; 
+    height: 500px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+p {
+    font-size: 24px;
+}
+
+#answer1:hover, #answer2:hover, #answer3:hover, #answer4:hover {
+    background-color:#EFE5E5;
+    cursor: pointer;
+}
+
+.modalcontent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #e6e6e6;
+    width: 80%;
+    height: 50%;
+    padding: 20px;
+    border: solid white;
+    border-width: 4px;
+    border-radius: 10px;
+}
+
+#modal {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+}
+
+#correctModal {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+#incorrectModal {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+#timesUpModal {
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    display: none;
+}
+
+hr {
+    background-color: black;
+}
+
+#start:hover {
+    cursor: pointer;
+}
