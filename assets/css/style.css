@@ -81,6 +81,18 @@ p {
     display: none;
 }
 
+#finalScoreModal{
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 99999;
+    height: 100%;
+    width: 100%;
+    display: none;
+} 
+
 hr {
     background-color: black;
 }

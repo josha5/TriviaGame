@@ -116,16 +116,18 @@ const results = [
     let incrementer = 0;
     let incorrectIncrementer = 0;
     let clockRunning = false;
-    let time = 30;
+    let time = 5;
     let intervalId;
     let smallQuestionNumber = 1;
     let correct = 0;
     let incorrect = 0;
+    let answered = false;
     $("#mainQuestion").append(results[incrementer].question);
     $("#answer1").html(results[incrementer].incorrect_answers[0]);
     $("#answer2").html(results[incrementer].incorrect_answers[1]);
     $("#answer3").html(results[incrementer].incorrect_answers[2]);
     $("#answer4").html(results[incrementer].correct_answer);
+    $("#timer").html(time);
 
     const runTimer = function() {
         clearInterval(intervalId);
@@ -141,24 +143,32 @@ const results = [
         $("#timer").html(time);
         if(time === 0) {
             stopTimer();
+        } 
+
+        if(time === 0 && answered === false) {
+            incorrect++;
+            timesUpModal();
+            runTimer();
         }
     }
     
     $(".answer").on("click", function() {
-        if($(this).text() === results[incrementer].correct_answer) {
+        if($(this).text() === results[incrementer].correct_answer && smallQuestionNumber !== 10) {
             correct++;
+            answered = true;
             correctModal();
-        } else if($(this).text() !== results[incrementer].correct_answer) {
+        } else if($(this).text() !== results[incrementer].correct_answer && smallQuestionNumber !== 10) {
             incorrect++;
+            answered = true;
             incorrectModal();
-        } else if(time === 0) {
-            // Modal Not Displaying start here.. 
-            timesUpModal();
-            
+        } else if(smallQuestionNumber => 10) {
+            stopTimer();
+            finalScore();
         }
     });
 
     const nextQuestion = function() {
+        answered = false;
         incrementer++;
         smallQuestionNumber++;
         time = 30;
@@ -189,6 +199,7 @@ const results = [
 
     const timesUpModal = function() {
         $("#timesUpModal").show();
+        $("#timeAnswerModal").html("Correct Answer: " +results[incrementer].correct_answer);
         setTimeout(function() {
             $("#timesUpModal").hide();
             nextQuestion();
@@ -199,4 +210,28 @@ const results = [
         $("#modal").hide();
         runTimer();
     });
+
+    const finalScore = function() {
+        $("#finalScoreModal").show();
+        $("#finalScore").html("Your final score is " + correct + " out of 10");
+        $("#newGame").on("click", function() {
+            $("#finalScoreModal").hide();
+            reset();
+            $("#mainQuestion").html(results[incrementer].question);
+            $("#answer1").html(results[incrementer].incorrect_answers[0]);
+            $("#answer2").html(results[incrementer].incorrect_answers[1]);
+            $("#answer3").html(results[incrementer].incorrect_answers[2]);
+            $("#answer4").html(results[incrementer].correct_answer);
+            $("#smallQuestionNumber").html("<p>Question " + smallQuestionNumber + " of 10</p>");
+            $("#timer").html(time);
+            runTimer();
+        });
+    }
+
+    const reset = function() {
+        incrementer = 0;
+        smallQuestionNumber = 1;
+        correct = 0;
+        incorrect = 0;
+    }
 });
