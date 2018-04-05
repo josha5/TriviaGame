@@ -127,7 +127,7 @@ const results = [
     $("#answer2").html(results[incrementer].incorrect_answers[1]);
     $("#answer3").html(results[incrementer].incorrect_answers[2]);
     $("#answer4").html(results[incrementer].correct_answer);
-    $("#timer").html(time);
+    $("#timer").html("Time Remaining: " + time);
 
     const runTimer = function() {
         clearInterval(intervalId);
@@ -140,7 +140,7 @@ const results = [
 
     const decrement = function() {
         time--;
-        $("#timer").html(time);
+        $("#timer").html("Time Remaining: " + time);
         if(time === 0) {
             stopTimer();
         } 
@@ -223,7 +223,7 @@ const results = [
             $("#answer3").html(results[incrementer].incorrect_answers[2]);
             $("#answer4").html(results[incrementer].correct_answer);
             $("#smallQuestionNumber").html("<p>Question " + smallQuestionNumber + " of 10</p>");
-            $("#timer").html(time);
+            $("#timer").html("Time Remaining: " + time);
             runTimer();
         });
     }
